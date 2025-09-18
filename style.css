@@ -1,0 +1,220 @@
+/* Reset & Căn bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ————— SIDEBAR TRÁI ————— */
+.sidebar {
+  width: 280px;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  padding: 30px 20px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  box-shadow: 3px 0 15px rgba(0,0,0,0.1);
+}
+
+.brand-logo h2 {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: #f1c40f;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.brand-logo p {
+  font-size: 0.95rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* ———— NÚT ĐIỀU HƯỚNG ———— */
+.day-buttons {
+  margin-bottom: 30px;
+}
+
+.day-btn {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.day-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.day-btn.active {
+  background: #e74c3c;
+  color: white;
+  font-weight: 600;
+  transform: translateX(8px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ———— DINH DƯỠNG ———— */
+.nutrient-info h4 {
+  margin: 25px 0 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #f1c40f;
+  font-size: 1.1rem;
+  color: #f1c40f;
+}
+
+.nutrient-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+.nutrient-item:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.nutrient-item .icon {
+  font-size: 1.2rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.nutrient-item .label {
+  font-weight: 500;
+  color: #ecf0f1;
+  white-space: nowrap;
+}
+
+.nutrient-item .value {
+  font-weight: 600;
+  color: #f1c40f;
+  margin-left: auto;
+}
+
+/* ————— NỘI DUNG CHÍNH ————— */
+main {
+  flex: 1;
+  padding: 40px;
+  background: white;
+}
+
+.day-content {
+  display: none;
+}
+
+.day-content.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.day-content h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin: 0 0 25px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #3498db;
+}
+
+.day-content h3 {
+  font-size: 1.3rem;
+  color: #e74c3c;
+  margin: 25px 0 12px;
+  display: flex;
+  align-items: center;
+}
+
+.day-content h3:before {
+  content: "● ";
+  color: #3498db;
+  margin-right: 5px;
+}
+
+.day-content p {
+  margin: 10px 0 10px 20px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  position: relative;
+}
+
+.day-content p:before {
+  content: "▹";
+  color: #7f8c8d;
+  position: absolute;
+  left: 0;
+}
+
+.day-content em {
+  display: block;
+  background: #e8f4fd;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #2980b9;
+  border-left: 4px solid #3498db;
+  font-weight: 500;
+}
+
+/* ————— RESPONSIVE ————— */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    padding: 20px;
+  }
+
+  .day-btn {
+    padding: 12px;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  main {
+    padding: 25px;
+  }
+
+  .day-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .nutrient-item {
+    padding: 6px 10px;
+  }
+}
